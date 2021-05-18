@@ -9,7 +9,7 @@ from flask_socketio import SocketIO
 app = Flask(__name__)
 
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://csxkuyiwuzeryk:dfc99d05f47b0cf76259f3abfed1e06dfc49c1cbe03ab0ddecfa572ddd46580a@ec2-63-34-97-163.eu-west-1.compute.amazonaws.com:5432/dbl4um2jdt8q85'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://rklqhnwumcasxo:c9a8a9c132dc639ed63c5bb82fd0124f687b7a347ec6ea79b192be309e5bc84d@ec2-63-34-97-163.eu-west-1.compute.amazonaws.com:5432/ddhjl9a0su7cvc'
 # Konfiguration eines SecretKeys, mit welchem Daten beim Suer verschlüsslet werden, um Cross Site Script Angriffe zu verhindern
 app.config['SECRET_KEY'] = 'ed01997c4a2b400537bf2260a3593d04'
 # Konfiguration einer SQLITE Datenbankanbindung mit relativem Pfad von dieser Appliaktion aus
