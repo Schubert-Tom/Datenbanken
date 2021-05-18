@@ -21,8 +21,6 @@
 * Infinite Scrolling bei Chat-Nachrichten --> gesamte Nachrichten-Historie einsehbar
 
 ## Struktur
-![Image text](ReadME_stuff/Ordnerstruktur.png)
-
 * Die HTML-Dokumente sind im Template-Folder untergebracht
 * Die CSS-Dokumente sind im static/styles-Folder untergebracht
 * Die Java Script Dateien sind im static/javascript-Folder untergebracht
