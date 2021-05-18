@@ -100,7 +100,7 @@ $(document).ready(function () {
   function reload_messages_from_database(data) {
     //Fetch Befehl (asynchron) mit Fetch API (ajax wäre auch gegangen)
     //Aufbau eines HTTP-Requests
-    fetch(`${window.location.href}/chat/_get_messages`, {
+    fetch(`${window.location.href}/_get_messages`, {
       method: "POST",
       credentials: "include",
       body: JSON.stringify(data),
