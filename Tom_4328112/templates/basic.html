@@ -21,7 +21,7 @@
         <ul>
             <li><a id=projekteNav class=navElement href="https://github.com/scuba14/Datenbanken/blob/master/README.md">Dokumentation</a></li>
             <li><a id=LinksNav class=navElement href="https://www.dhbw-stuttgart.de">DHBW</a></li>
-            <li><a id=aktProjektNav class=navElement href="{{url_for('flow_chart')}}">Angebote</a></li>
+            <li><a id=aktProjektNav class=navElement href="{{url_for('flow_chart')}}">Flow-Chart</a></li>
             <li><a id=KontaktNav class=navElement href="{{ url_for('kontakt') }}">Kontakt</a></li>
             <li><a id=ChatNav class=navElement href="{{ url_for('chat') }}">Chat</a></li> {%if current_user.is_authenticated%}
             <li><a id=LoginNav class=navElement href="{{ url_for('logout') }}">Logout</a></li> {%else%}
