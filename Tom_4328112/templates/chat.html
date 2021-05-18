@@ -147,7 +147,7 @@
     }
     // Instanziierung des Socket Objekts
     // Der Browser sendet eine Anfrage zum wechseln von HTTP auf ein Websocket Protokoll
-    const socket = io("http://localhost:5000" + "/chat");
+    const socket = io(window.location.href+"/chat");
 
     // Trackt ob Mauszeiger über Mülltonne beim löschen von chats
     over_delete = false;
