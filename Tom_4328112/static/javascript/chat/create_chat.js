@@ -68,7 +68,7 @@ $(document).ready(function () {
     };
     //Fetch Befehl (asynchron) mit Fetch API (ajax wäre auch gegangen)
     //Aufbau eines HTTP-Requests
-    fetch(`${window.location.href}/chat/_validate_user`, {
+    fetch(`${window.location.href}/_validate_user`, {
       method: "POST",
       credentials: "include",
       body: JSON.stringify(data),
