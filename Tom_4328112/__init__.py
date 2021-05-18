@@ -13,7 +13,6 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://rklqhnwumcasxo:c9a8a9c132dc6
 # Konfiguration eines SecretKeys, mit welchem Daten beim Suer verschlüsslet werden, um Cross Site Script Angriffe zu verhindern
 app.config['SECRET_KEY'] = 'ed01997c4a2b400537bf2260a3593d04'
 # Konfiguration einer SQLITE Datenbankanbindung mit relativem Pfad von dieser Appliaktion aus
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///LTApps.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
