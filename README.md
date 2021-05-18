@@ -1,6 +1,8 @@
 # Datenbanken Projekt
  Matrikelnummer: 4328112
 
+Besuchen Sie das Projekt unter: https://ltchatita.herokuapp.com/login?next=%2Fchat
+
 ## Umsetzung der Applikation
 ## Allgemein
 * Backend: Microframework Flask in Python
@@ -9,10 +11,9 @@
 
 * Datenbank: SQL-Lite mit SQLAlchemy
 
-## Login-System
+## Funktionen
 * User-Registrierung
 * User-Login
-* Zugriffsmanagment (Unterteilung in logged-in/rich_user<==>logged-out/poor_user)
 * Chat
 * Realtime-Chat mit Websocket-Protokoll
 * Erstellen von Chat-Räumen mit ausgewählten Usern
