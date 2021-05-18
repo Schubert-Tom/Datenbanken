@@ -65,7 +65,7 @@ Zum Testen ob eine Python Version vorhanden ist: Ins Terminal `python3 --version
 3. In dem Ordner 4328112 ein Terminal öffnen
 4. Im Terminal `python3 -m venv venv`eingeben
 5. Im Terminal `source venv/bin/activate` eingeben --> im Terminal sollte nun stehen: (venv)Macbookname
-6. Im Terminal folgende packages mit dem Befehl `pip3 install -r requirements` eingeben:
+6. Im Terminal folgende packages mit dem Befehl `pip3 install -r requirements.txt` eingeben:
 7. Der Ordner 4328112 sollte nun 2 Ordner und ein Python Modul mit dem Namen run.py enthalten
 8. Starten Sie die Applikation indem Sie im Terminal `python3 run.py` eingeben
 9. Browser öffnen
