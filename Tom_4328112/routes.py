@@ -1,8 +1,8 @@
 import time, functools, json
 from flask import render_template, flash, redirect, url_for, request, make_response, jsonify
-from LTHome.db_models import User, Chat, Message
-from LTHome.forms import RegistrationForm, LoginForm, CreateChat
-from LTHome import app, db, bcrypt, socketio
+from Tom_4328112.db_models import User, Chat, Message
+from Tom_4328112.forms import RegistrationForm, LoginForm, CreateChat
+from Tom_4328112 import app, db, bcrypt, socketio
 from flask_login import login_user, current_user, logout_user, login_required
 from flask_socketio import send, emit, disconnect, join_room, leave_room
 
