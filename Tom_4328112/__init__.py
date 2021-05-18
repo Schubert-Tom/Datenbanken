@@ -5,7 +5,7 @@ from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 from flask_socketio import SocketIO
 # Select Environment dev or prod
-ENV ='dev'
+ENV ='prod'
 # deklariert die gesamte Appliaktion als Flask Applikation mit dem Namen __main__, falls sie aus diesem Skript gestartet wird
 app = Flask(__name__)
 if ENV =='dev':

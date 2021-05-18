@@ -7,8 +7,8 @@ from flask import Blueprint
 
 
 # Creating new database
-# from LTHome import *
-# from LTHome.db_models import *
+# from Tom_4328112 import *
+# from Tom_4328112.db_models import *
 # db.create_all()
 
 
