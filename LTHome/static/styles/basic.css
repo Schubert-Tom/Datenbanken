@@ -1,0 +1,261 @@
+body {
+    background-color: #505050;
+    width: 80vw;
+    min-width: 740px;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    overflow-x: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: stretch;
+    overflow-x: hidden;
+}
+
+.grid_content {
+    margin-top: 0.3rem;
+    min-height: 84vh;
+    flex-grow: 2;
+}
+
+.succes {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(34, 212, 34, 0.445);
+}
+
+.fail {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(212, 75, 34, 0.445);
+}
+
+.info {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(251, 247, 2, 0.445);
+}
+
+.error_msg {
+    border-style: solid;
+    border-color: rgba(206, 20, 20, 0.65);
+    background-color: rgba(192, 23, 23, 0.459);
+    color: black;
+}
+
+
+/* ######### Navbar ########*/
+
+.mainnav {
+    z-index: 1000;
+    height: 8vh;
+    width: 100%;
+    padding: 0;
+    position: absolute;
+    background-color: #333;
+    color: aliceblue;
+    grid-area: nav;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    position: sticky;
+    top: 0;
+}
+
+.navElement {
+    height: 100%;
+    width: 100px;
+    color: aliceblue;
+    font-size: 11px;
+    margin: 0px 1px;
+    padding: 0px 10px;
+    list-style-type: none;
+    flex-basis: 0;
+    flex-grow: 3;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#projekteNav {
+    margin-left: 0px;
+}
+
+#imgNav img {
+    height: 100%;
+    margin: 3px;
+}
+
+#LoginNav {
+    margin-right: 0px;
+}
+
+a {
+    text-decoration: none;
+    font-weight: bold;
+    color: aliceblue;
+}
+
+.navElement:hover {
+    transition: all 0.2s linear;
+    background-color: rgba(80, 80, 80, 0.775);
+    /* color: rgb(255, 252, 165); */
+}
+
+.burger {
+    display: none;
+}
+
+#img_wrapper {
+    width: auto;
+    height: 96%;
+    background-color: rgb(255, 255, 255);
+    border: 0px solid rgba(0, 0, 0, 0);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* ######### ------ ########*/
+
+
+/* ######### Burger ########*/
+
+.dropdown {
+    display: none;
+}
+
+.dropdown li {
+    list-style: none;
+}
+
+
+/* ######### ------ ########*/
+
+
+/* ######### grid_content ########*/
+
+.grid_content {
+    width: 100%;
+}
+
+
+/* ######### ------ ########*/
+
+
+/* ######### footer ########*/
+
+footer {
+    width: 100%;
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(8, 102, 224);
+    color: aliceblue;
+    grid-area: footer;
+    font-size: 10px;
+    margin-top: 0.3rem;
+    bottom: 0px;
+}
+
+
+/* ######### ------ ########*/
+
+
+/*############## Responsiveness bei 750px ##############*/
+
+@media only screen and (max-width: 750px) {
+    body {
+        width: 100vw;
+        min-width: 0px;
+    }
+    .mainnav #projekteNav,
+    .mainnav #LinksNav,
+    .mainnav #aktProjektNav,
+    .mainnav #KontaktNav,
+    .mainnav #ChatNav,
+    .mainnav #LoginNav {
+        display: none;
+    }
+    .dropdown #projekteNav,
+    .dropdown #LinksNav,
+    .dropdown #aktProjektNav,
+    .dropdown #KontaktNav,
+    .dropdown #ChatNav,
+    .dropdown #LoginNav {
+        text-align: center;
+        height: 11vh;
+        width: 100%;
+        font-size: 22px;
+        display: flex;
+        align-items: center;
+    }
+    .mainnav {
+        display: inline;
+    }
+    .expanded .mainnav {
+        order: -1;
+    }
+    #imgNav {
+        float: left;
+        margin: 0px;
+    }
+    .visible .navElement {
+        width: 100%;
+        color: aliceblue;
+        padding: 10px;
+        font-size: 14px;
+    }
+    .burger {
+        height: 100%;
+        float: right;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        max-width: 100px;
+        flex-basis: content;
+        padding: 0px 9px;
+        cursor: pointer;
+        margin-right: 20px;
+    }
+    .burger div {
+        width: 32px;
+        height: 4px;
+        background-color: rgb(226, 226, 226);
+        margin: 4px;
+    }
+    .burger:hover {
+        transition: all 0.2s linear;
+        background-color: rgba(80, 80, 80, 0.775);
+    }
+    .expanded .dropdown {
+        display: flex;
+        width: 100vw;
+        height: 83vh;
+        background-color: #333;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        order: 1;
+    }
+    .expanded .grid_content {
+        display: none;
+    }
+    .expanded footer {
+        order: 2;
+    }
+    .dropdown ul {
+        width: 100%;
+        padding: 0px;
+        margin: 0px;
+    }
+}

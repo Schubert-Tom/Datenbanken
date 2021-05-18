@@ -1,0 +1,53 @@
+{% extends "basic.html" %} {% block imports %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/register.css') }}"> {% endblock %} {% block content %}
+<div class="wrapper">
+    <form method="POST" action="">
+        {{ form.hidden_tag()}}
+        <h3>Create Account</h3>
+
+        <div class="username">
+            {{form.username.label(class="username_label")}} {%if form.username.errors%} {{form.username(class="CSSClassinhere")}}
+            <div>
+                {%for error in form.username.errors%}
+                <span>{{error}}</span> {%endfor%}
+            </div>
+            {%else%} {{form.username(class="username_input")}} {%endif%}
+        </div>
+
+        <div class="email">
+            {{form.email.label(class="email_label")}} {%if form.email.errors%} {{form.email(class="CSSClassinhere")}}
+            <div>
+                {%for error in form.email.errors%}
+                <span>{{error}}</span> {%endfor%}
+            </div>
+            {%else%} {{form.email(class="email_input")}} {%endif%}
+        </div>
+
+        <div class="pswd">
+            {{form.password.label(class="pswd_label")}} {%if form.password.errors%} {{form.password(class="CSSClassinhere")}}
+            <div>
+                {%for error in form.password.errors%}
+                <span>{{error}}</span> {%endfor%}
+            </div>
+            {%else%} {{form.password(class="pswd_input")}} {%endif%}
+        </div>
+        <div class="pswd">
+            {{form.confirm_password.label(class="pswd_label")}} {%if form.confirm_password.errors%} {{form.confirm_password(class="CSSClassinhere")}}
+            <div>
+                {%for error in form.confirm_password.errors%}
+                <span>{{error}}</span> {%endfor%}
+            </div>
+            {%else%} {{form.confirm_password(class="pswd_input")}} {%endif%}
+        </div>
+        <div class="input_wrapper">
+            {{form.submit(class="submit")}}
+        </div>
+    </form>
+</div>
+<div class="already_acc">
+    <small>
+        Already have an Account? <a href="{{url_for('login')}}">Sign In</a>
+    </small>
+
+</div>
+{% endblock %}

@@ -1,0 +1,220 @@
+.grid_content {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 400px 1000px;
+    grid-template-areas: "slideshow" "contentAll";
+    grid-gap: 0.3rem;
+}
+
+
+/* container für zukünftige Slideshow */
+
+.slideshow {
+    background-color: olive;
+    grid-area: slideshow;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+}
+
+
+/* erstellen einer Tabelle in der die  Würfel angeordnet werden */
+
+.content {
+    grid-area: contentAll;
+    padding: 3px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    display: grid;
+    grid-template-rows: 50% 50%;
+    grid-template-areas: "aktProjekt aktProjekt aktProjekt Kontakt Kontakt Kontakt Kontakt Kontakt" "Stats Stats Stats Stats Stats About About About"
+}
+
+.SubContent {
+    position: relative;
+    margin: 2px;
+    padding: 2px;
+}
+
+
+/* zuweisen der tabellenbereiche für die jeweiligen Würfel-Container */
+
+#aktProjektCnt {
+    grid-area: aktProjekt;
+}
+
+#KontaktCnt {
+    grid-area: Kontakt;
+}
+
+#StatsCnt {
+    grid-area: Stats;
+}
+
+#AboutCnt {
+    grid-area: About;
+}
+
+
+/* Window und perspective sind erforderlich um mit transorm3D zu arbeiten */
+
+.window {
+    height: 100%;
+    width: 100%;
+}
+
+.perspective {
+    perspective: 400px;
+}
+
+
+/* Eigenschaften die für jede Seite des Würfels gelten */
+
+.cube__face {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    line-height: 300px;
+    font-size: 40px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    user-select: none;
+}
+
+
+/* Scene ist Bereich in dem jeder Würfel jeweils sich dreht */
+
+.scene {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: translateZ(-241px);
+}
+
+
+/* Die einzelnen Seiten werden so rotiert und transformiert dass sie einen vollständigen Würfel zusammenfügen */
+
+.cube__face--front {
+    transform: rotateY( 0deg) translateZ(241px);
+    background-color: #505050;
+    height: 100%;
+    width: 100%;
+    border: 2px solid black;
+}
+
+.cube__face--back {
+    transform: rotateY(180deg) rotateZ(180deg) translateZ(241px);
+    background-color: #575151;
+    height: 100%;
+    width: 100%;
+    border: 2px solid black;
+}
+
+.cube__face--top {
+    transform: rotateX( 90deg) translateZ(241px);
+    background-color: #353535;
+    height: 100%;
+    width: 100%;
+}
+
+.cube__face--bottom {
+    transform: rotateX(-90deg) translateZ(241px);
+    background-color: #353535;
+    height: 100%;
+    width: 100%;
+}
+
+
+/* sodass mögliche überschneidungen der Seiten elemente die man nicht sehen kann (TOP und BOTTOM) verschwinden */
+
+.cube__face--top,
+.cube__face--bottom {
+    display: none;
+}
+
+
+/* wenn show-front wird vorderseite angezeigt */
+
+.scene.show-front {
+    transform: translateZ(-241px) rotateX(0deg);
+}
+
+
+/* wenn show-back wird rückseite angezeigt */
+
+.scene.show-back {
+    transform: translateZ(-241px) translateY(4px) rotateX(-180deg);
+}
+
+
+/* wennn rotate und show-front oder back gleichzeitig soll transition angewendet werden */
+
+.rotate.show-front,
+.rotate.show-back {
+    transition: transform 1s;
+}
+
+.button {
+    height: 30px;
+    width: 120px;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    background: linear-gradient(90deg, #0162c8, #55e7fc);
+    border-radius: 15px;
+    letter-spacing: 2px;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.button a {
+    color: aliceblue;
+}
+
+#btnWrapper {
+    height: 70px;
+    width: 100%;
+    padding-bottom: 40px;
+    position: absolute;
+    left: 0;
+    bottom: 0px;
+    border: 1px solid black;
+}
+
+.no-select {
+    user-select: none;
+}
+
+button[type=button] {
+    border: none;
+    border-radius: 25px;
+    background: none;
+}
+
+
+/* #################  responsivenes bei 935px ################# */
+
+@media only screen and (max-width: 935px) {
+    .grid_content {
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 400px 2000px;
+        grid-template-areas: "slideshow" "contentAll";
+        grid-gap: 0.3rem;
+    }
+    .content {
+        grid-template-columns: 1fr;
+        display: grid;
+        grid-template-rows: 25% 25% 25% 25%;
+        grid-template-areas: "aktProjekt" "Kontakt" "Stats" "About"
+    }
+}

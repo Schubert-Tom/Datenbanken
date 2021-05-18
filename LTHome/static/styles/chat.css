@@ -1,0 +1,399 @@
+/*############## Gesamte Chat Seite Style ##############*/
+
+html {
+    overflow-y: hidden;
+}
+
+.content_wrapper {
+    width: 100%;
+    height: 84vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 100%;
+    grid-template-areas: "sidebar chat chat chat";
+}
+
+
+/*############## ------------------- ##############*/
+
+
+/*############## Sidebar-style Allgemein ##############*/
+
+.sidebar {
+    background-color: #444444;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 92% 8%;
+    grid-template-areas: "view" "make_new";
+    grid-area: sidebar;
+}
+
+#all_chats_wrapper {
+    overflow-y: hidden;
+    grid-area: view;
+}
+
+#all_chats {
+    display: block;
+    overflow-y: scroll;
+    height: 100%;
+    width: 100%;
+}
+
+#new_chat {
+    height: 100%;
+    min-height: 40px;
+    width: 100%;
+    grid-area: make_new;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#new_chat #btn_new_Chat {
+    height: 40px;
+    width: 40px;
+    margin: 3px;
+    padding: 4px 5px 5px 5px;
+    font-size: 30px;
+}
+
+
+/*############## ------------------- ##############*/
+
+
+/*############## Create new Chat ##############*/
+
+#create_new_chat {
+    display: none;
+    overflow-y: scroll;
+    height: 100%;
+    width: 100%;
+    grid-area: view;
+}
+
+#Inputfield_AddUsers label {
+    display: block;
+}
+
+#Inputfield_AddUsers form {
+    display: inline-block;
+}
+
+
+/*############## ------------------- ##############*/
+
+
+/*############## Chat-Overview ##############*/
+
+.chat_preview {
+    border-style: solid;
+    background-color: rgb(12, 124, 199);
+    user-select: none;
+    cursor: pointer;
+    margin: 1px 0px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: flex-start;
+    position: relative;
+}
+
+.chat_preview h3 {
+    width: 80%;
+    order: 1;
+    margin: 10px 0px 10px 1px;
+}
+
+.chat_preview .delete_chat {
+    order: 2;
+    height: 22px;
+    width: 22px;
+    margin: 10px 3px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+
+.chat_preview .delete_chat:hover {
+    border: 1px solid rgba(255, 0, 0, 0);
+    border-radius: 50%;
+    background-color: rgb(255, 69, 69);
+}
+
+.chat_preview .teilnehmer_in_der_overview {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    order: 3;
+    overflow-x: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.chat_preview span {
+    display: block;
+}
+
+.error_add_title {
+    display: none;
+}
+
+.error_add_user {
+    display: none;
+}
+
+
+/*############## ------------------- ##############*/
+
+
+/*############## Message-Fenster ##############*/
+
+#chat {
+    background-color: rgb(49, 44, 44);
+    width: 100%;
+    height: 100%;
+    display: none;
+    grid-template-rows: 10% 83% 7%;
+    grid-template-areas: "chat_title_bar" "messages" "textform";
+    grid-area: chat;
+}
+
+#startscreen {
+    background-color: rgb(49, 44, 44);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    grid-area: chat;
+    text-align: center;
+    color: white;
+}
+
+.chat_info_bar {
+    grid-area: chat_title_bar;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(240, 225, 198);
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+#chat_title {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+}
+
+#chat_info_bar_participants {
+    width: 100%;
+    text-align: center;
+    font-size: 16;
+}
+
+.all_messages {
+    grid-area: messages;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    overflow-y: scroll;
+}
+
+.message {
+    word-break: break-word;
+    max-width: 60%;
+    min-width: 15%;
+    color: white;
+    border-style: solid;
+    border-radius: 7px;
+    border: 2px solid rgba(0, 0, 0, 0.637);
+    margin: 1%;
+    padding: 5px;
+    display: flex;
+    justify-content: flex-start;
+    flex-flow: wrap;
+}
+
+.message .time_wrapper {
+    width: 100%;
+    height: auto;
+    align-self: flex-end;
+    display: block;
+}
+
+.message span {
+    width: 100%;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.message text a {
+    color: blue;
+    font-weight: normal;
+}
+
+.message .time_in_message {
+    float: right;
+}
+
+.me .message .time_in_message {
+    color: #202d61;
+}
+
+.others .message .time_in_message {
+    color: #68686b;
+}
+
+.me .message {
+    background-color: rgba(112, 114, 117, 0.863);
+}
+
+.others .message {
+    background-color: rgba(29, 45, 106, 0.863);
+}
+
+.me {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.others {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+
+/*############## ------------- ##############*/
+
+
+/*############## Write a Message ##############*/
+
+#ChatTextBox {
+    padding: 0px 1px 0px 1px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: nowrap;
+    height: 100%;
+    background-color: rgb(49, 44, 44);
+    grid-area: textform;
+}
+
+#ChatTextBox #msg_write {
+    border: none;
+    width: 75%;
+    height: 90%;
+    font-size: 18px;
+}
+
+
+/*############## --------------- ##############*/
+
+
+/*############## Buttons ##############*/
+
+.btn {
+    height: 100%;
+    width: auto;
+    background-color: rgb(30, 135, 255);
+    text-align: center;
+    /* Blue background */
+    border: none;
+    /* Remove borders */
+    color: white;
+    /* White text */
+    padding: 12px 16px;
+    /* Some padding */
+    font-size: 16px;
+    /* Set a font size */
+    /* Mouse pointer on hover */
+}
+
+.btn:hover {
+    background-color: rgb(20, 102, 195);
+}
+
+.btn:focus,
+#msg_write:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.btn_add {
+    height: 100%;
+    width: auto;
+    border-radius: 50%;
+}
+
+.all_chats_toggle {
+    display: none;
+}
+
+
+/*############## --------------- ##############*/
+
+
+/*############## Responsiveness ##############*/
+
+@media only screen and (max-width: 750px) {
+    .content_wrapper {
+        width: 100%;
+        height: 84vh;
+        overflow-y: hidden;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas: "collapsed" "chat";
+        grid-template-rows: 10% 90%;
+    }
+    .all_chats_toggle {
+        display: flex;
+        grid-area: collapsed;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(112, 114, 117, 0.863);
+        align-items: center;
+        z-index: 2;
+    }
+    .all_chats_toggle input {
+        height: 25px;
+        width: 25px;
+        margin: 16px;
+    }
+    .show_all_chats .all_chats_toggle input {
+        transform: rotateZ(180deg);
+    }
+    .all_chats_toggle span {
+        font-size: 22px;
+        font-weight: bold;
+        margin: auto 0 auto 10px;
+    }
+    .sidebar {
+        display: none;
+    }
+    .show_all_chats #chat,
+    .show_all_chats #startscreen {
+        display: none;
+    }
+    .show_all_chats .sidebar {
+        /* grid-template-rows: 95% 5%;
+        grid-template-areas: "view" "make_new"; */
+        display: grid;
+        grid-area: chat;
+        z-index: 2;
+    }
+    .show_all_chats #new_chat {
+        min-height: 40px;
+    }
+}

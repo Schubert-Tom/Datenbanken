@@ -1,0 +1,163 @@
+{% extends "basic.html" %} {% block imports %}
+<link id="chat-style" rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/chat.css') }}"> {% endblock %} {% block content %}
+<div class="content_wrapper">
+    <div class="all_chats_toggle">
+        <input type="image" src="../static/images/expand_down.png" class="toggle_chat_preview" id="expand_chats"></input>
+        <span>Zu allen Chats</span>
+    </div>
+    <!-- sidebar -->
+    <div class="sidebar">
+        <!-- create new chat fenster -->
+        <div id="create_new_chat">
+            <form id="CreateChat">
+                {{ form.hidden_tag()}}
+                <fieldset>
+                    <legend>Create new ChatRoom</legend>
+                    <div>
+                        {{form.chat_name.label(class="CSSClassinhere")}} {{form.chat_name(class="CSSClassinhere")}}
+                        <div>
+                            <span class="error_msg error_add_title"> Titel muss mind. 2 und darf max.20 Zeichen lang sein</span>
+                        </div>
+                    </div>
+                    <div>
+                        <br>
+                        <fieldset>
+                            <legend>Add Users to the Chat Room</legend>
+                            <div id="Inputfield_AddUsers">
+                                <label>Added User: Du</label>
+                            </div>
+                            {{form.participants.label(class="CSSClassinhere")}} {{form.participants(class="CSSClassinhere")}}
+                            <div>
+                                <span class="error_msg error_add_user"></span>
+                            </div>
+                            <br>
+                            <input type="button" class="btn btn_add" id="btn_new_User" value="+">
+                        </fieldset>
+                    </div>
+                </fieldset>
+                <div>
+                    <input type="submit" class="btn btncreate" id="create" value="create">
+                    </input>
+                </div>
+            </form>
+        </div>
+        <!-- anzeige von allen chatrooms -->
+        <div id="all_chats_wrapper">
+            <div id="all_chats">
+                {%for room in rooms%}
+                <div class="chat_preview" id={{room.chat_id}}>
+                    <h3>{{room}}</h3>
+                    <input type="image" src="../static/images/delete.png" class="delete_chat" id="chat_id--/{{room.chat_id}}"></input>
+                    <div class="teilnehmer_in_der_overview">
+                        <span>DU</span>{%for user in room.chat_participants%}{%if user!=current_user%}
+                        <span>, {{user.username}}</span> {%endif%} {%endfor%}
+                    </div>
+                </div>
+                {%endfor%}
+            </div>
+        </div>
+        <!-- enthält button um zu create chat ansicht zu wechseln -->
+        <div id="new_chat">
+            <form method="POST">
+                <button type="button" class="btn btn_add" id="btn_new_Chat">+
+                    </button>
+            </form>
+        </div>
+    </div>
+    <!-- sidebar ende -->
+    <!-- chat ansicht rechts -->
+    <div id="chat">
+        <div class="chat_info_bar">
+            <h2 id="chat_title">Hier steht der Titel des Chats</h2>
+            <span id='chat_info_bar_participants'>Hier stehen alle Teilnehmer</span>
+        </div>
+        <div class="all_messages" id="-1">
+            <div class="me">
+                <div class="message">
+                    <span>' + sending_user + '</span>
+                    <br>
+                    <text>' + text + '</text>
+                    <small style="text-align: end;"> </small>
+                </div>
+            </div>
+        </div>
+        <form id="ChatTextBox">
+            <input id="msg_write" method="POST" type="text" action="" autocomplete="off"></input>
+            <input type="submit" class="btn btnsend" id="send">
+            </input>
+        </form>
+    </div>
+    <!-- chat ansicht ende -->
+    <!-- ansicht wenn kein chat ausgewählt -->
+    <div id="startscreen">
+        <h1>Erstelle Chats und chatte mit deinen Freunden!!</h1>
+    </div>
+</div>
+{% endblock %} {% block scripts %}
+<script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
+<script>
+    // In diesem Skript werden global zugängliche Funktionen und Variablen definiert, welche in den anderen Skripten benötigt werden
+
+    /*  Diese Funktion rendert Textnachrichten und fügt sie im Chat live ein
+        Diese Funktion kann sowohl bei Live-Nachrichten als auch beim Nachladen aus der Datenbank benutzt werden
+            @param msg: JSON--> Nachricht die eingefügt werden muss      
+            @param msg_on_load: Boolean--> Muss die Nachricht oben oder unten angefügt werden
+    */
+    function render_Chat_message(msg, msg_on_load) {
+        // Id des Chats laden, in welchen geschrieben wird
+        var chat_room_id = msg["chat"];
+        // Id des Chats laden, der gerade angezeigt wird
+        var id = $(".all_messages").attr('id');
+        // Checken ob die Nachricht in den aktuell angeziegten Chat geschrieben werden muss oder in einen anderen
+        // Wenn der aktuelle Chat nicht der richtige ist, dann muss die Message nicht live gerendert werden
+        if (id != chat_room_id) {
+            return;
+        }
+        // Json Nachricht entpacken
+        var text = urlify(msg["text"]);
+
+        // Datumszeug Test wird in console geloggt
+        var date = msg["date"];
+        var time = date.split(" ")[1].split(".")[0].split(":")[0] + ":" + date.split(" ")[1].split(".")[0].split(":")[1];
+        console.log(time);
+        var sending_user = msg["user_name"];
+        // HTML-Code bauen der angehängt werden soll
+        if (current_user == sending_user) {
+            msg_html = '<div class="me"><div class="message"> <span>' + sending_user + '</span><br> <text>' + text + '</text> <div class="time_wrapper"> <small class="time_in_message">' + time + '</small> </div> </div></div>'
+        } else {
+            msg_html = '<div class="others"><div class="message"> <span>' + sending_user + '</span><br> <text>' + text + '</text>  <div class="time_wrapper"> <small class="time_in_message">' + time + '</small> </div>  </div></div>'
+        }
+        // Unterscheiden ob die Nachricht oben oder unten angefügt werden soll
+        if (msg_on_load) {
+            console.log("alte nachrichten werden geladen");
+            // Alte Nachricht soll oben angehängt werden 
+            $(".all_messages").append(msg_html);
+        } else {
+            // Neue Nachricht soll unten angehängt werden 
+            console.log("neue nachrichten werden angehängt");
+            $(".all_messages").prepend(msg_html);
+        }
+    }
+    // Erkennt links in Text Nachrichten und macht sie klickbar
+    function urlify(text) {
+        var urlRegex = /(https?:\/\/[^\s]+)/g;
+        return text.replace(urlRegex, function(url) {
+            return '<a href="' + url + '">' + url + '</a>';
+        })
+    }
+    // Instanziierung des Socket Objekts
+    // Der Browser sendet eine Anfrage zum wechseln von HTTP auf ein Websocket Protokoll
+    const socket = io("http://localhost:5000" + "/chat");
+
+    // Trackt ob Mauszeiger über Mülltonne beim löschen von chats
+    over_delete = false;
+
+    // Speicherung des einzigartigen Usernamen in einer Konstanten
+    const current_user = "{{current_user.username}}";
+</script>
+<script src="{{ url_for('static',filename='javascript/chat/create_chat.js') }}"></script>
+<script src="{{ url_for('static',filename='javascript/chat/delete_chat.js') }}"></script>
+<script src="{{ url_for('static',filename='javascript/chat/load_chat_messages.js') }}"></script>
+<script src="{{ url_for('static',filename='javascript/chat/send_chat_messages.js') }}"></script>
+<script src="{{ url_for('static',filename='javascript/chat/mobile_chat_preview.js') }}"></script>
+{% endblock %}

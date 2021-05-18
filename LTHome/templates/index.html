@@ -1,0 +1,100 @@
+{% extends "basic.html" %} {% block imports %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/index.css') }}"> {% endblock %} {% block content %}
+
+<div class="slideshow">
+    Here I wanted to place a Slideshow
+</div>
+
+<div class="content">
+    <div id=aktProjektCnt class=SubContent>
+        <div class="window perspective">
+            <div class="scene rotate">
+                <div class="cube__face cube__face--front">
+                    These are some
+                    <!-- <iframe width="100%" height=100% frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=1%20Grafton%20Street,%20Dublin,%20Ireland+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe> -->
+                    <button class="animate_cube" name="aktProjektCnt" type="button">
+                        <div class="button no-select"> <a>Go Back</a> </div>
+                    </button>
+                </div>
+                <div class="cube__face cube__face--back">
+                    These are some
+                    <button class="animate_cube" name="aktProjektCnt" type="button">
+                        <div class="button no-select"> <a>Go Front</a> </div>
+                    </button>
+
+                </div>
+                <div class="cube__face cube__face--top"></div>
+                <div class="cube__face cube__face--bottom"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id=KontaktCnt class=SubContent>
+        <div class="window perspective">
+            <div class="scene rotate">
+                <div class="cube__face cube__face--front">
+                    funny boxes
+                    <!-- <iframe width="100%" height=100% frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=1%20Grafton%20Street,%20Dublin,%20Ireland+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe> -->
+                    <button class="animate_cube" name="KontaktCnt" type="button">
+                        <div class="button no-select"> <a>Go Back</a> </div>
+                    </button>
+                </div>
+                <div class="cube__face cube__face--back">
+                    funny boxes
+                    <button class="animate_cube" name="KontaktCnt" type="button">
+                        <div class="button no-select"> <a>Go Front</a></div>
+                    </button>
+                </div>
+                <div class="cube__face cube__face--top"></div>
+                <div class="cube__face cube__face--bottom"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id=StatsCnt class=SubContent>
+        <div class="window perspective">
+            <div class="scene rotate">
+                <div class="cube__face cube__face--front">
+                    you can
+                    <!-- <iframe width="100%" height=100% frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=1%20Grafton%20Street,%20Dublin,%20Ireland+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe> -->
+                    <button class="animate_cube" name="StatsCnt" type="button">
+                        <div class="button no-select"> <a>Go Back</a></div>
+                    </button>
+                </div>
+                <div class="cube__face cube__face--back">
+                    you can
+                    <button class="animate_cube" name="StatsCnt" type="button">
+                        <div class="button no-select"> <a>Go Front</a> </div>
+                    </button>
+                </div>
+                <div class="cube__face cube__face--top"></div>
+                <div class="cube__face cube__face--bottom"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id=AboutCnt class=SubContent>
+        <div class="window perspective">
+            <div class="scene rotate">
+                <div class="cube__face cube__face--front">
+                    play with
+                    <!-- <iframe width="100%" height=100% frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=1%20Grafton%20Street,%20Dublin,%20Ireland+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe> --><button class="animate_cube" name="AboutCnt" type="button">
+                       <div class="button no-select"> <a>Go Back</a> </div>
+                      </button> </div>
+                <div class="cube__face cube__face--back">
+                    play with
+                    <button class="animate_cube" name="AboutCnt" type="button">
+                         <div class="button no-select"> <a>Go Front</a> </div>
+                     </button>
+                </div>
+                <div class="cube__face cube__face--top"></div>
+                <div class="cube__face cube__face--bottom"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %} {% block scripts %}
+<script src="{{ url_for('static',filename='javascript/cube_rotation.js') }}"></script>
+
+{% endblock %}

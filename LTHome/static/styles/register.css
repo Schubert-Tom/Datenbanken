@@ -1,0 +1,76 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 180px;
+    width: 300px;
+}
+
+form {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+h3 {
+    width: 100%;
+    margin: 6px;
+    color: aliceblue;
+}
+
+.username,
+.pswd,
+.email {
+    margin: 5px 5px;
+}
+
+label {
+    float: left;
+    width: 45%;
+    order: 1;
+    color: rgb(189, 197, 204);
+    display: inline;
+}
+
+.username_input,
+.pswd_input,
+.email_input {
+    float: right;
+    width: 50%;
+    order: 2;
+    display: inline;
+}
+
+.input_wrapper {
+    margin: 10px 15px;
+    align-self: flex-end;
+    order: 4;
+    position: absolute;
+    bottom: 0;
+}
+
+.submit {
+    height: 30px;
+    width: 85px;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    background: linear-gradient(90deg, #0162c8, #55e7fc);
+    border-radius: 15px;
+    letter-spacing: 2px;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.already_acc {
+    width: auto;
+    border-top: 3px groove black;
+    margin: 10px;
+}
+
+.already_acc a {
+    color: gray;
+}

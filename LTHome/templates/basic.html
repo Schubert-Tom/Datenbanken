@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" scale="1.0"> {% if title %}
+    <title>LTApps - {{ title }}</title>
+    {% else %}
+    <title>LTApps - Main</title>
+    {% endif %}
+    <meta name="LT Apps" content=" Homepage of LTApps">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/basic.css') }}"> {% block imports %} {% endblock %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/nav.css') }}">
+</head>
+
+<body>
+    <div class="dropdown">
+        <ul>
+            <li><a id=projekteNav class=navElement href="https://github.com/scuba14/Web-Engineering/blob/master/README.md">Dokumentation</a></li>
+            <li><a id=LinksNav class=navElement href="{{url_for('hausaufgaben')}}">Hausaufgaben</a></li>
+            <li><a id=aktProjektNav class=navElement href="{{url_for('flow_chart')}}">Angebote</a></li>
+            <li><a id=KontaktNav class=navElement href="{{ url_for('kontakt') }}">Kontakt</a></li>
+            <li><a id=ChatNav class=navElement href="{{ url_for('chat') }}">Chat</a></li> {%if current_user.is_authenticated%}
+            <li><a id=LoginNav class=navElement href="{{ url_for('logout') }}">Logout</a></li> {%else%}
+            <li><a id=LoginNav class=navElement href="{{ url_for('login') }}">Login</a></li> {%endif%}
+        </ul>
+    </div>
+    <nav class="mainnav">
+        <a id=projekteNav class=navElement href="https://github.com/scuba14/Web-Engineering/blob/master/README.md">Dokumentation</a>
+        <a id=LinksNav class=navElement href="{{url_for('hausaufgaben')}}">Hausaufgaben</a>
+        <a id=aktProjektNav class=navElement href="{{url_for('flow_chart')}}">Flow-Chart</a>
+        <a id=imgNav class=navElement href="{{ url_for('index') }}">
+            <div id="img_wrapper"><img src="{{ url_for('static',filename='images/Logo.png') }}" alt="Site Logo"></div>
+        </a>
+        <a id=KontaktNav class=navElement href="{{ url_for('kontakt') }}">Kontakt</a>
+        <a id=ChatNav class=navElement href="{{ url_for('chat') }}">Chat</a> {%if current_user.is_authenticated%}
+        <a id=LoginNav class=navElement href="{{ url_for('logout') }}">Logout</a> {%else%}
+        <a id=LoginNav class=navElement href="{{ url_for('login') }}">Login</a> {%endif%}
+        <div class="burger">
+            <div id="line1"></div>
+            <div id="line2"></div>
+            <div id="line3"></div>
+        </div>
+    </nav>
+    <!-- This section flashes a message after       succesful login or another important feedback for the user-->
+    {% with messages = get_flashed_messages(with_categories=true)%}
+    <!-- Code Block wird aufgerufen wenn -->
+    {% if messages%} {% for category, message in messages %}
+    <!-- Allows differnt styles depending on the type of flash-message -->
+    <!-- We have to write the styles ourself or import them from bootstrap -->
+    <div class="{{ category}}">
+        {{ message }}
+    </div>
+    {% endfor %} {% endif %} {% endwith %}
+
+    <script>
+        $(document).ready(function() {
+            setTimeout(function() {
+                $(".succes, .fail").css("display", "none");
+            }, 4000);
+        });
+
+        // $(document).ready(function() {
+        //     setTimeout(function() {
+        //         $(".info").css("display", "none");
+        //     }, 4000);
+        // });
+    </script>
+
+    <div class="grid_content">
+        {% block content %} {% endblock %}
+        <script src="{{ url_for('static',filename='javascript/burger.js') }}"></script>
+    </div>
+
+    <footer>
+        Tom Schubert 2021 @Datenbanken
+    </footer>
+
+    {% block scripts %} {% endblock %}
+</body>
+
+</html>
