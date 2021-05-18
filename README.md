@@ -1,4 +1,4 @@
-# Datenbanken-Kommunikation
+# Datenbanken Projekt
  Matrikelnummer: 4328112
 
 ## Umsetzung der Applikation
