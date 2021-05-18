@@ -47,6 +47,7 @@ Der Content zum indivdualisieren des Contents kann an die Stelle ... geschrieben
 * Dynamische Nav-Bar (mit CSS Grid)
 * Hyperlinkerkennung in Chats
 * Nachrichtenton beim Erhalt einer Nachricht (falls man nicht im Chat anwesend ist)
+* Website wurde unter der Domain https://ltchatita.herokuapp.com/login?next=%2Fchat deployed
 ## Anmerkungen
 * Die Web-Applikation funktioniert nur bedingt unter Safari 14.1
 * Beim Testen des Logins und des Chats mit unterschiedlichen Accounts ist darauf zu achten zwei unterschiedliche Browser zu benutzen oder einen Incognito-Tab zu öffnen. Wenn man nur verschiedene Tabs benutzt weist der Browser den Cookie beiden Tabs zu und man loggt sich automatisch in beiden Tabs mit dem gleichen Account ein.
@@ -73,6 +74,8 @@ Zum Testen ob eine Python Version vorhanden ist: Ins Terminal `python3 --version
 11. Applikation testen
 
 Bem Start erscheint eine INFO-Meldung von SQL-Alchemy: Diese einfach ignorieren.
+
+Des Weiteren ist die Seite unter folgendem Link zu erreichen:https://ltchatita.herokuapp.com/login?next=%2Fchat
 
 ## Datenbankanbindung
 
