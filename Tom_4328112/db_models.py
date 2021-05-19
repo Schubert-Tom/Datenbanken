@@ -4,15 +4,6 @@ from flask_login import UserMixin
 from flask import Blueprint 
 
 
-
-
-# Creating new database
-# from Tom_4328112 import *
-# from Tom_4328112.db_models import *
-# db.create_all()
-
-
-
 # To get the extension login_manager running need some functions --> Usermixin and this decorater
 # Usermixin is a class to replace the four functions:
 #   # isauthenticated()
@@ -81,7 +72,7 @@ class Message(db.Model):
 # With this query its possible to iterate about i.e all messages which refer to the same Chat.
 # This List of n sets is stored in i.e. messages
 
-# The n*n relationship has to work with an association table
+# The n*n relationshipt has to work with an association table
 # In this case we havent got an Foreign Key which refers back to table initiating the relationship like we got in the 1*n relationship
 # In this case it refers to the association table which stores to foreign keys for both tables.
 # So with the call secondary= association_table (i.e:link) it instantiates a query to the table which connects to n Chats and thats possible for n Users

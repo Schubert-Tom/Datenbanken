@@ -8,7 +8,7 @@ from flask_socketio import SocketIO
 # deklariert die gesamte Appliaktion als Flask Applikation mit dem Namen __main__, falls sie aus diesem Skript gestartet wird
 app = Flask(__name__)
 
-ENV='prod'
+ENV='production'
 if ENV == 'dev':
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///LTApps.db'
 else:

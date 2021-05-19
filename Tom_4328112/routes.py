@@ -1,4 +1,4 @@
-import time, functools, json
+import functools, json
 from flask import render_template, flash, redirect, url_for, request, make_response, jsonify
 from Tom_4328112.db_models import User, Chat, Message
 from Tom_4328112.forms import RegistrationForm, LoginForm, CreateChat

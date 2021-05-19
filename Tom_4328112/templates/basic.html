@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width" scale="1.0"> {% if title %}
-    <title>LTApps - {{ title }}</title>
+    <title>Datenbanken - {{ title }}</title>
     {% else %}
-    <title>LTApps - Main</title>
+    <title>Datenbanken - Main</title>
     {% endif %}
-    <meta name="LT Apps" content=" Homepage of LTApps">
+    <meta name="Tom Schubert" content=" Homepage of Tom Schubert">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -19,8 +19,8 @@
 <body>
     <div class="dropdown">
         <ul>
-            <li><a id=projekteNav class=navElement href="https://github.com/scuba14/Datenbanken/blob/master/README.md">Dokumentation</a></li>
-            <li><a id=LinksNav class=navElement href="https://www.dhbw-stuttgart.de">DHBW</a></li>
+            <li><a id=projekteNav class=navElement href="https://github.com/scuba14/Web-Engineering/blob/master/README.md">Dokumentation</a></li>
+            <li><a id=LinksNav class=navElement href="https://www.dhbw-stuttgart.de/">DHBW</a></li>
             <li><a id=aktProjektNav class=navElement href="{{url_for('flow_chart')}}">Flow-Chart</a></li>
             <li><a id=KontaktNav class=navElement href="{{ url_for('kontakt') }}">Kontakt</a></li>
             <li><a id=ChatNav class=navElement href="{{ url_for('chat') }}">Chat</a></li> {%if current_user.is_authenticated%}
@@ -29,8 +29,8 @@
         </ul>
     </div>
     <nav class="mainnav">
-        <a id=projekteNav class=navElement href="https://github.com/scuba14/Datenbanken/blob/master/README.md">Dokumentation</a>
-        <a id=LinksNav class=navElement href="https://www.dhbw-stuttgart.de">DHBW</a>
+        <a id=projekteNav class=navElement href="https://github.com/scuba14/Web-Engineering/blob/master/README.md">Dokumentation</a>
+        <a id=LinksNav class=navElement href="https://www.dhbw-stuttgart.de/">DHBW</a>
         <a id=aktProjektNav class=navElement href="{{url_for('flow_chart')}}">Flow-Chart</a>
         <a id=imgNav class=navElement href="{{ url_for('index') }}">
             <div id="img_wrapper"><img src="{{ url_for('static',filename='images/Logo.png') }}" alt="Site Logo"></div>
@@ -76,7 +76,7 @@
     </div>
 
     <footer>
-        Tom Schubert 2021 @Datenbanken
+        Tom Schubert 2020 @Web Engineering
     </footer>
 
     {% block scripts %} {% endblock %}
