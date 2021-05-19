@@ -1,7 +1,11 @@
 from Tom_4328112 import db, login_manager
 from datetime import datetime
 from flask_login import UserMixin
-from flask import Blueprint 
+
+#For creating a new databse open python console and run follwoing commands:
+#from Tom_4328112 import *
+#from Tom_4328112 import db
+#db.create_all()
 
 
 # To get the extension login_manager running need some functions --> Usermixin and this decorater
@@ -23,7 +27,7 @@ link = db.Table('link',
 
 
 # The db File gets created locally with the commands:
-# from server import db
+# from Tom_4328112 import db
 # db.create_all()
 
 class User(db.Model, UserMixin):

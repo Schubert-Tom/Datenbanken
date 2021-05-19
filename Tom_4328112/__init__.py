@@ -8,9 +8,9 @@ from flask_socketio import SocketIO
 # deklariert die gesamte Appliaktion als Flask Applikation mit dem Namen __main__, falls sie aus diesem Skript gestartet wird
 app = Flask(__name__)
 
-ENV='production'
+ENV='dev'
 if ENV == 'dev':
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///LTApps.db'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///Datenbank.db'
 else:
     app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://rklqhnwumcasxo:c9a8a9c132dc639ed63c5bb82fd0124f687b7a347ec6ea79b192be309e5bc84d@ec2-63-34-97-163.eu-west-1.compute.amazonaws.com:5432/ddhjl9a0su7cvc'
 # Konfiguration eines SecretKeys, mit welchem Daten beim Suer verschlüsslet werden, um Cross Site Script Angriffe zu verhindern
