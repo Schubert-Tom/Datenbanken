@@ -12,6 +12,8 @@ body {
     flex-wrap: wrap;
     align-content: stretch;
     overflow-x: hidden;
+    user-select: all;
+    -webkit-user-select: none;
 }
 
 .grid_content {

@@ -6,7 +6,8 @@ from flask_login import UserMixin
 #from Tom_4328112 import *
 #from Tom_4328112 import db
 #db.create_all()
-
+def init_db():
+    db.create_all()
 
 # To get the extension login_manager running need some functions --> Usermixin and this decorater
 # Usermixin is a class to replace the four functions:
