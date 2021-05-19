@@ -9,7 +9,7 @@ Besuchen Sie das Projekt unter: https://ltchatita.herokuapp.com/login?next=%2Fch
 
 * Frontend: HTML,CSS und Java Script (JQuery)(Templating Engine:JINJA 2.0)
 
-* Datenbank: SQL-Lite mit SQLAlchemy
+* Datenbank: PostgreSQL mit SQLAlchemy
 
 ## Funktionen
 * User-Registrierung
@@ -41,7 +41,7 @@ Der Content zum indivdualisieren des Contents kann an die Stelle ... geschrieben
 ## Highlights der Applikation
 * Implementierung Real-Time Websocketprotokoll (Alle Aktionen zwischen Usern im Chat erflogen in RealTime)
 * Erstellen mehrer individueller Chat-Räume
-* Speicherung aller geschriebenen Nachrichten in jedem Chat mittels einer SQLite Datenbank
+* Speicherung aller geschriebenen Nachrichten in jedem Chat mittels einer PostgreSQL Datenbank
 * Dynamisches Nachladen der Chat-Nachrichten (Infinite Scrolling Ansatz im Chat-Window)
 * Verbindung von User-Identifikation und Chat --> Nachrichten können nur von denjenigen gelesen werden die dafür bestimmt sind
 * Hoher SchreibKomfort auf PC und Smartphone --> Der Chat hängt sich an den Nachrichtenfluss an. Koppelt sich jedoch ab wenn der User alte Nachrichten durchlesen will (wie bei Whats App)
