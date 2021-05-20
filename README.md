@@ -108,5 +108,8 @@ Zum Funktionsumfang gehören folgende Datenbankzugriffe:
 Zum Testen der Applikation im Terminal folgenden Befehl ausführen: `coverage run -m unittest tests `
 Das Ergebnis des Tests und die Testabdeckung lässt sich mit `coverage report` anzeigen.
 Getestet wird ausschließlich Code im Zusammenhang mit der Datenbank.
+Tests sollten. 
+Getestet wird ausschließlich Code im Zusammenhang mit der Datenbank.
+Tests sollten außerdem nur im ENV='dev' mode laufen (siehe Tom_4328112/__init__.py), sonst kommt es zu Fehlern.
 
 
