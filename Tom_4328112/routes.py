@@ -62,10 +62,9 @@ def register():
 #####################################################################
 
 #Route für die Hausaufgaben
-@app.route('/hausaufgaben')
-@login_required
-def hausaufgaben():
-    return render_template("hausaufgaben.html", title="Wikipedia")
+@app.route('/tests')
+def tests():
+    return render_template("/index.html", title="Wikipedia")
 
 # Route für den Logout (Hat kein Template)
 @app.route('/logout')

@@ -7,7 +7,7 @@ from flask_socketio import SocketIO
 # deklariert die gesamte Appliaktion als Flask Applikation mit dem Namen __main__, falls sie aus diesem Skript gestartet wird
 app = Flask(__name__)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=True
-ENV='dev'
+ENV='deploy'
 if ENV == 'dev':
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///Datenbank.db'
 else:
