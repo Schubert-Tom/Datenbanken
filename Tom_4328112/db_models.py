@@ -56,7 +56,7 @@ class Chat(db.Model):
 class Message(db.Model):
     message_id = db.Column(db.Integer, primary_key=True)
     text = db.Column(db.Text, nullable=False)
-    date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow()+2)
+    date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow())
     user = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     chat = db.Column(db.Integer, db.ForeignKey('chat.chat_id'), nullable=False)
     user_name=db.Column(db.String(20), nullable=False)
