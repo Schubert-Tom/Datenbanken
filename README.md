@@ -72,9 +72,7 @@ Zum Testen ob eine Python Version vorhanden ist: Ins Terminal `python3 --version
 10.`localhost:5000` aufrufen
 11. Applikation testen
 
-Bem Start erscheint eine INFO-Meldung von SQL-Alchemy: Diese einfach ignorieren.
-
-Des Weiteren ist die Seite unter folgendem Link zu erreichen:https://ltchatita.herokuapp.com/login?next=%2Fchat
+Falls die Installation nicht klappen sollte, ist die Seite unter folgendem Link zu erreichen:https://ltchatita.herokuapp.com/login?next=%2Fchat
 
 ## Datenbankanbindung
 
