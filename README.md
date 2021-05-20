@@ -1,7 +1,7 @@
 # Datenbanken Projekt
  Matrikelnummer: 4328112
 
-Besuchen Sie das Projekt unter: https://ltchatita.herokuapp.com/login?next=%2Fchat
+Besuchen Sie das Projekt unter: https://ltchatita.herokuapp.com
 
 ## Umsetzung der Applikation
 ## Allgemein
