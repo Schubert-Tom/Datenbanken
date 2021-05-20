@@ -13,6 +13,7 @@ $(document).ready(function () {
     // Wechsel auf die create new chat view
     if ($("#create_new_chat").css("display") == "none") {
       $("#all_chats").css("display", "none");
+      $("#all_chats_wrapper").css("display", "none");
       $("#create_new_chat").css("display", "block");
       $("#btn_new_Chat").html("-");
       return;
@@ -28,6 +29,7 @@ $(document).ready(function () {
       participants = [];
       // Umschalten der View
       $("#all_chats").css("display", "block");
+      $("#all_chats_wrapper").css("display", "block");
       $("#create_new_chat").css("display", "none");
       $("#btn_new_Chat").html("+");
       // Wenn ein neuer Chat von einem anderen User ertsllt wurde muss beim zurückwechseln

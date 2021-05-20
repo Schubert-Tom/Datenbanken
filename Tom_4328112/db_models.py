@@ -1,13 +1,11 @@
 from Tom_4328112 import db, login_manager
-from datetime import datetime
+from datetime import datetime, timezone
 from flask_login import UserMixin
 
 #For creating a new databse open python console and run follwoing commands:
 #from Tom_4328112 import *
 #from Tom_4328112 import db
 #db.create_all()
-def init_db():
-    db.create_all()
 
 # To get the extension login_manager running need some functions --> Usermixin and this decorater
 # Usermixin is a class to replace the four functions:
@@ -58,7 +56,7 @@ class Chat(db.Model):
 class Message(db.Model):
     message_id = db.Column(db.Integer, primary_key=True)
     text = db.Column(db.Text, nullable=False)
-    date = db.Column(db.DateTime, nullable=False, default=datetime.now)
+    date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow()+2)
     user = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     chat = db.Column(db.Integer, db.ForeignKey('chat.chat_id'), nullable=False)
     user_name=db.Column(db.String(20), nullable=False)
