@@ -11,3 +11,4 @@ https://github.com/eventlet/eventlet/archive/master.zip
 SQLAlchemy==1.3.20
 psycopg2-binary==2.8.6
 Flask-Testing==0.8.1
+coverage==5.5
