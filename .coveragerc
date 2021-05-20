@@ -4,5 +4,5 @@ omit =
     */venv/*
     tests.py
     Tom_4328112/__init__.py
-    Tom_4328112/db_models.py
+    Tom_4328112/routes.py
     Tom_4328112/forms.py

@@ -21,7 +21,7 @@ def login():
     form = LoginForm()
     # Wenn die Flask-Wtf Form bestätigt wird:
     if form.validate_on_submit():
-        # Schauen ob der SUer in der Datenbank zu finden ist
+        # Schauen ob der User in der Datenbank zu finden ist
         user = User.query.filter_by(username=form.username.data).first()
         # checkt ob User existiert und ob das Passwort stimmt.
         if user and bcrypt.check_password_hash(user.password, form.password.data):
@@ -60,12 +60,6 @@ def register():
 
 
 #####################################################################
-
-#Route für die Hausaufgaben
-@app.route('/tests')
-def tests():
-    return render_template("/index.html", title="Wikipedia")
-
 # Route für den Logout (Hat kein Template)
 @app.route('/logout')
 def logout():
