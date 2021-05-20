@@ -105,3 +105,8 @@ Zum Funktionsumfang gehören folgende Datenbankzugriffe:
 
 ## Tests
 
+Zum Testen der Applikation im Terminal folgenden Befehl ausführen: `coverage run -m unittest tests `
+Das Ergebnis des Tests und die Testabdeckung lässt sich mit `coverage report` anzeigen.
+Getestet wird ausschließlich Code im Zusammenhang mit der Datenbank.
+
+
