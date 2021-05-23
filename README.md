@@ -69,7 +69,7 @@ Zum Testen ob eine Python Version vorhanden ist: Ins Terminal `python3 --version
 7. Starten Sie entwerder die Applikation im Entwicklungs/Debug-Modus indem Sie im Terminal `python3 run_dev.py` eingeben.
 8. Oder starten Sie die Applikation im Production-Modus indem Sie im Terminal `python3 run_prod.py` eingeben.
 9. Google Chrome öffnen
-10.`localhost:5000` aufrufen
+10. `localhost:5000` aufrufen
 11. Applikation testen
 
 Falls die Installation nicht klappen sollte, ist die Seite unter folgendem Link zu erreichen:https://ltchatita.herokuapp.com/login?next=%2Fchat
