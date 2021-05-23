@@ -56,25 +56,24 @@ Besuchen Sie das Projekt unter: https://ltchatita.herokuapp.com
 * MAC OS
 * Freier Port 5000
 * Funktionierende python3 version auf Mac
-
+* Vorzugsweiße Google Chrome
 
 Zum Testen ob eine Python Version vorhanden ist: Ins Terminal `python3 --version` eintippen.
 ## Vorgehen
 1. Diesen Ordner herunterladen oder `git clone` in gewünschtes Directory
-2. Gehe, Sie in den Ordner 4328112
-3. In dem Ordner 4328112 ein Terminal öffnen
+2. Gehe, Sie in den heruntergeladenen Ordner
+3. Im Ordner auf der Ebene der `run.py`-Datei ein Terminal öffnen
 4. Im Terminal `python3 -m venv venv`eingeben
 5. Im Terminal `source venv/bin/activate` eingeben --> im Terminal sollte nun stehen: (venv)Macbookname
 6. Im Terminal folgende packages mit dem Befehl `pip3 install -r requirements.txt` eingeben:
 7. Der Ordner 4328112 sollte nun 2 Ordner und ein Python Modul mit dem Namen run.py enthalten
-8. Starten Sie die Applikation indem Sie im Terminal `python3 run.py` eingeben
-9. Browser öffnen
-10.`localhost:5000` aufrufen
-11. Applikation testen
+8. Starten Sie die Applikation im Entwicklungs/Debug-Modus indem Sie im Terminal `python3 run_dev.py` eingeben.
+9. Starten Sie die Applikation im Production-Modus indem Sie im Terminal `python3 run_prod.py` eingeben.
+10. Google Chrome öffnen
+11.`localhost:5000` aufrufen
+12. Applikation testen
 
-Bem Start erscheint eine INFO-Meldung von SQL-Alchemy: Diese einfach ignorieren.
-
-Des Weiteren ist die Seite unter folgendem Link zu erreichen:https://ltchatita.herokuapp.com/login?next=%2Fchat
+Falls die Installation nicht klappen sollte, ist die Seite unter folgendem Link zu erreichen:https://ltchatita.herokuapp.com/login?next=%2Fchat
 
 ## Datenbankanbindung
 
@@ -108,6 +107,7 @@ Zum Testen der Applikation im Terminal folgenden Befehl ausführen:
 `coverage run -m unittest tests `
 
 Das Ergebnis des Tests und die Testabdeckung lässt sich mit folgendem Befehl anzeigen:
+
 `coverage report`
 
 Getestet wird ausschließlich Code im Zusammenhang mit der Datenbank. 
