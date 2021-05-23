@@ -1,3 +1,4 @@
+import os
 from unittest.case import TestCase
 from flask import Flask
 import unittest
@@ -23,18 +24,19 @@ class MyTest(TestCase):
         #response=self.client.post('/createAccount', data=dict(username='Tom', email='test@testmail.com',password='password',sid="TEST"))
         # Create a Clone of the same user we registered in the database
         chat = Chat(title="TEST")
-        
         # Check if the User is in the database
         assert chat is chat    
     
     def setUp(self):
-        
         db.create_all()
 
     def tearDown(self):
-        #db.session.remove()
-        #db.drop_all()
-        pass
+        # remove sessions
+        db.session.remove()
+        db.drop_all()
+        # remove database file
+        os.remove("Tom_4328112/Test.db")
+        
 
 if __name__ == '__main__':
     # runs all functions with test_* in MyTEST Class

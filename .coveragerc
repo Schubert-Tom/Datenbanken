@@ -1,8 +1,11 @@
+# coverage config
 # .coveragerc to control coverage.py
 [run]
 omit =
     */venv/*
     tests.py
+    Tom_4328112/main/__init__.py
+    Tom_4328112/main/routes.py
+    Tom_4328112/main/forms.py
     Tom_4328112/__init__.py
-    Tom_4328112/routes.py
-    Tom_4328112/forms.py
+    config.py
