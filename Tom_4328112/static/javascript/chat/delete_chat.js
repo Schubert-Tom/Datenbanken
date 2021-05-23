@@ -14,6 +14,8 @@ $(document).ready(function () {
   socket.on("delete_chat", (rsp_data) => {
     $("#startscreen").css("display", "flex");
     $("#chat").css("display", "none");
+    // Id des aktuell ausgewählten chats auf -1 setzten da kein chat mehr ausgewählt ist
+    $(".all_messages").attr("id", -1);
     // Wenn ein Chat ertsellt wurde
     if (JSON.parse(rsp_data)["chat_left"] == true) {
       // Checken in welcher Anzeige man sich befindet
