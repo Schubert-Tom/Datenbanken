@@ -66,11 +66,11 @@ Zum Testen ob eine Python Version vorhanden ist: Ins Terminal `python3 --version
 4. Im Terminal `python3 -m venv venv`eingeben
 5. Im Terminal `source venv/bin/activate` eingeben --> im Terminal sollte nun stehen: (venv)Macbookname
 6. Im Terminal folgende packages mit dem Befehl `pip3 install -r requirements.txt` eingeben:
-8. Starten Sie die Applikation im Entwicklungs/Debug-Modus indem Sie im Terminal `python3 run_dev.py` eingeben.
-9. Starten Sie die Applikation im Production-Modus indem Sie im Terminal `python3 run_prod.py` eingeben.
-10. Google Chrome öffnen
-11.`localhost:5000` aufrufen
-12. Applikation testen
+7.1 Starten Sie die Applikation im Entwicklungs/Debug-Modus indem Sie im Terminal `python3 run_dev.py` eingeben.
+7.2 Starten Sie die Applikation im Production-Modus indem Sie im Terminal `python3 run_prod.py` eingeben.
+8. Google Chrome öffnen
+9.`localhost:5000` aufrufen
+10. Applikation testen
 
 Falls die Installation nicht klappen sollte, ist die Seite unter folgendem Link zu erreichen:https://ltchatita.herokuapp.com/login?next=%2Fchat
 
