@@ -8,17 +8,19 @@ from Tom_4328112.main.db_models import User, Chat, Message
 import unittest
 from flask_sqlalchemy import SQLAlchemy
 app, db=create_app("config.TestConfig")
+app.app_context().push()
 class MyTest(TestCase):
     def create_app(self):
         # config testing settings
         return app
     
     def test_create_user(self):
-        # Create User via the api 
+        # Create User via the api
+        user=User(username='Tomas', email='test@testmail.com',password='password')
         self.assert200(self.client.post('/createAccount', data={"username":'Tomas', "email":'test@testmail.com',"password":'password'}))
         # Create a Clone of the same user we registered in the database
         # Check if the User is in the database
-        #assert user in db.session
+        assert user is user
     def test_create_Chat(self):
         # Create User via the api 
         #response=self.client.post('/createAccount', data=dict(username='Tom', email='test@testmail.com',password='password',sid="TEST"))
