@@ -21,24 +21,24 @@
         <ul>
             <li><a id=projekteNav class=navElement href="https://github.com/scuba14/Datenbanken/blob/master/README.md">Dokumentation</a></li>
             <li><a id=LinksNav class=navElement href="https://www.dhbw-stuttgart.de/">DHBW</a></li>
-            <li><a id=aktProjektNav class=navElement href="{{url_for('flow_chart')}}">Flow-Chart</a></li>
-            <li><a id=KontaktNav class=navElement href="{{ url_for('kontakt') }}">Kontakt</a></li>
-            <li><a id=ChatNav class=navElement href="{{ url_for('chat') }}">Chat</a></li> {%if current_user.is_authenticated%}
-            <li><a id=LoginNav class=navElement href="{{ url_for('logout') }}">Logout</a></li> {%else%}
-            <li><a id=LoginNav class=navElement href="{{ url_for('login') }}">Login</a></li> {%endif%}
+            <li><a id=aktProjektNav class=navElement href="{{url_for('main.flow_chart')}}">Flow-Chart</a></li>
+            <li><a id=KontaktNav class=navElement href="{{ url_for('main.kontakt') }}">Kontakt</a></li>
+            <li><a id=ChatNav class=navElement href="{{ url_for('main.chat') }}">Chat</a></li> {%if current_user.is_authenticated%}
+            <li><a id=LoginNav class=navElement href="{{ url_for('main.logout') }}">Logout</a></li> {%else%}
+            <li><a id=LoginNav class=navElement href="{{ url_for('main.login') }}">Login</a></li> {%endif%}
         </ul>
     </div>
     <nav class="mainnav">
         <a id=projekteNav class=navElement href="https://github.com/scuba14/Datenbanken/blob/master/README.md">Dokumentation</a>
         <a id=LinksNav class=navElement href="https://www.dhbw-stuttgart.de/">DHBW</a>
-        <a id=aktProjektNav class=navElement href="{{url_for('flow_chart')}}">Flow-Chart</a>
-        <a id=imgNav class=navElement href="{{ url_for('index') }}">
+        <a id=aktProjektNav class=navElement href="{{url_for('main.flow_chart')}}">Flow-Chart</a>
+        <a id=imgNav class=navElement href="{{ url_for('main.index') }}">
             <div id="img_wrapper"><img src="{{ url_for('static',filename='images/Logo.png') }}" alt="Site Logo"></div>
         </a>
-        <a id=KontaktNav class=navElement href="{{ url_for('kontakt') }}">Kontakt</a>
-        <a id=ChatNav class=navElement href="{{ url_for('chat') }}">Chat</a> {%if current_user.is_authenticated%}
-        <a id=LoginNav class=navElement href="{{ url_for('logout') }}">Logout</a> {%else%}
-        <a id=LoginNav class=navElement href="{{ url_for('login') }}">Login</a> {%endif%}
+        <a id=KontaktNav class=navElement href="{{ url_for('main.kontakt') }}">Kontakt</a>
+        <a id=ChatNav class=navElement href="{{ url_for('main.chat') }}">Chat</a> {%if current_user.is_authenticated%}
+        <a id=LoginNav class=navElement href="{{ url_for('main.logout') }}">Logout</a> {%else%}
+        <a id=LoginNav class=navElement href="{{ url_for('main.login') }}">Login</a> {%endif%}
         <div class="burger">
             <div id="line1"></div>
             <div id="line2"></div>

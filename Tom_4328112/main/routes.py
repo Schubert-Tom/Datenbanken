@@ -1,10 +1,13 @@
 import functools, json
 from flask import render_template, flash, redirect, url_for, request, make_response, jsonify
-from Tom_4328112.db_models import User, Chat, Message
-from Tom_4328112.forms import RegistrationForm, LoginForm, CreateChat
-from Tom_4328112 import app, db, bcrypt, socketio
+from .db_models import User, Chat, Message
+from .forms import RegistrationForm, LoginForm, CreateChat
 from flask_login import login_user, current_user, logout_user, login_required
-from flask_socketio import send, emit, disconnect, join_room, leave_room
+from flask_socketio import  emit, disconnect, join_room, leave_room
+# Importe Blueprint
+from . import main as app
+# Import Extensions
+from .. import db, bcrypt, socketio
 
 # Route für die Index-Seite
 @app.route('/')
@@ -16,7 +19,7 @@ def index():
 def login():
     # Wenn der User schon eingeloggt ist, dann nichts machen
     if current_user.is_authenticated:
-        return redirect(url_for('index'))
+        return redirect(url_for('main.index'))
     # form definieren für den LogIN
     form = LoginForm()
     # Wenn die Flask-Wtf Form bestätigt wird:
@@ -31,7 +34,7 @@ def login():
             next_page = request.args.get("next")
             flash(f'Welcome {user.username}!', 'succes')
             # Special ternary conditional
-            return redirect(next_page) if next_page else redirect(url_for('index'))
+            return redirect(next_page) if next_page else redirect(url_for('main.index'))
         else:
             #Flash Message gibt fedback
             flash(f'Wrong Password or Username!', 'fail')
@@ -42,20 +45,21 @@ def login():
 def register():
     # Wenn der User schon eingeloggt ist, dann nichts machen
     if current_user.is_authenticated:
-        return redirect(url_for('index'))
+        return redirect(url_for('main.index'))
     # Form definiern die bei der Registrierung verwendet wird
     form = RegistrationForm()
     # Wenn Form bestätigt wurde auf Register Page:
     if form.validate_on_submit():
         # Passwort hashen
         hashed_pw = bcrypt.generate_password_hash(form.password.data).decode('utf8')
-        user = User(username=form.username.data, email=form.email.data, password=hashed_pw)
+        user = User(username=form.username.data, email=form.email.data, password=form.password.data)
         # Datenbank Daten adden und commiten
         db.session.add(user)
         db.session.commit()
+        print("done")
         # The Css for the flash message depending on weater it is an alert or a confirm...
         flash(f'Account created for {form.username.data}!', 'succes')
-        return redirect(url_for("login"))
+        return redirect(url_for("main.login"))
     return render_template("register.html", title="Create an Account", form=form)
 
 
@@ -65,7 +69,7 @@ def register():
 def logout():
     logout_user()
     flash(f'Successful logout!', 'succes')
-    return redirect(url_for("index"))
+    return redirect(url_for("main.index"))
 
 #Route für die Kontakt (Matrikelnummer)
 @app.route('/kontakt')

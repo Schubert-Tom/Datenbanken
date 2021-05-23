@@ -1,4 +1,4 @@
-from Tom_4328112 import db, login_manager
+from .. import db, login_manager
 from datetime import datetime, timezone
 from flask_login import UserMixin
 

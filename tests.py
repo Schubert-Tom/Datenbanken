@@ -1,32 +1,40 @@
+from unittest.case import TestCase
 from flask import Flask
-from flask_testing import TestCase
-from Tom_4328112 import app
-from Tom_4328112.db_models import User, Chat
 import unittest
-
+from flask_testing import TestCase
+from Tom_4328112 import create_app, db
+from Tom_4328112.main.db_models import User, Chat, Message
+import unittest
+from flask_sqlalchemy import SQLAlchemy
+app, db=create_app("config.TestConfig")
 class MyTest(TestCase):
-
-    SQLALCHEMY_DATABASE_URI ='sqlite:///Test.db'
-    TESTING = True
-
     def create_app(self):
-        # config testing settings 
+        # config testing settings
         return app
     
     def test_create_user(self):
         # Create User via the api 
-        #response=self.client.post('/createAccount', data=dict(username='Tom', email='test@testmail.com',password='password',sid="TEST"))
+        self.assert200(self.client.post('/createAccount', data={"username":'Tomas', "email":'test@testmail.com',"password":'password'}))
         # Create a Clone of the same user we registered in the database
-        user = User(username='Tom', email='test@testmail.com', password='password',sid="TEST")
         # Check if the User is in the database
-        assert user is user 
+        #assert user in db.session
     def test_create_Chat(self):
         # Create User via the api 
         #response=self.client.post('/createAccount', data=dict(username='Tom', email='test@testmail.com',password='password',sid="TEST"))
         # Create a Clone of the same user we registered in the database
         chat = Chat(title="TEST")
+        
         # Check if the User is in the database
         assert chat is chat    
+    
+    def setUp(self):
+        
+        db.create_all()
+
+    def tearDown(self):
+        #db.session.remove()
+        #db.drop_all()
+        pass
 
 if __name__ == '__main__':
     # runs all functions with test_* in MyTEST Class
