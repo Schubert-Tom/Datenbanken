@@ -99,7 +99,7 @@ Zum Funktionsumfang gehören folgende Datenbankzugriffe:
 * Schreiben von Nachrichten
 * Lesen von bereits geschriebenen Nachrichten
 
-## Tests
+## Unit-Test
 
 Zum Testen der Applikation im Terminal folgenden Befehl ausführen:
 
