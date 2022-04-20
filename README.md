@@ -4,6 +4,9 @@
 Besuchen Sie das Projekt unter: https://ltchatita.herokuapp.com
 
 ## Umsetzung der Applikation
+
+Die gesamte Applikation wurde von Grund auf selbstständig entwickelt, getestet und deployed.
+
 ## Allgemein
 * Backend: Microframework Flask in Python
 
