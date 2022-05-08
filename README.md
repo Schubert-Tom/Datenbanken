@@ -2,7 +2,8 @@
  Matrikelnummer: 4328112
 
 Besuchen Sie das Projekt unter: https://ltchatita.herokuapp.com
-Information: Die Zugangsdaten der Datenbank sind öffentlich einsehbar und somit alle Nachrichten.
+
+Information: Die Zugangsdaten der Datenbank sind öffentlich einsehbar und somit auch alle Nachrichten.
 
 
 ## Umsetzung der Applikation
