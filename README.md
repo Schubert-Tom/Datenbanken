@@ -1,4 +1,4 @@
-# Datenbanken Projekt
+# WebChat
  Matrikelnummer: 4328112
 
 Besuchen Sie das Projekt unter: https://ltchatita.herokuapp.com
